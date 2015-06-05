@@ -1,0 +1,32 @@
+fieldset {
+  min-width: 0;
+}
+
+@media (min-width: 1240.1px) {
+
+  .post {
+    width: 1060px;
+  }
+
+  #edit {
+    float: left;
+    display: block;
+    width: 640px;
+  }
+
+  #meta {
+    float: right;
+    display: block;
+    margin-left: 20px;
+  }
+
+  #meta .finish {
+    display: none;
+  }
+
+  .file.meta [data-state="edit"],
+  .file.meta [data-state="meta"] {
+    display: none;
+  }
+}
+
