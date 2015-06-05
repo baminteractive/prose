@@ -87,6 +87,14 @@ module.exports = Backbone.Router.extend({
   // #example-user
   // #example-organization
   profile: function(login) {
+    if (auth.locked) {
+      router.navigate(auth.locked, {
+        trigger: true,
+        replace: true
+      });
+      return;
+    }
+
     if (this.view) this.view.remove();
 
     this.app.loader.start(t('loading.repos'));
@@ -336,7 +344,8 @@ module.exports = Backbone.Router.extend({
 
     // If user has authenticated
     if (this.user) {
-      router.navigate(this.user.get('login'), {
+      var startAt = auth.locked || this.user.get('login');
+      router.navigate(startAt, {
         trigger: true,
         replace: true
       });
