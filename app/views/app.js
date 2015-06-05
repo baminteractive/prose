@@ -68,7 +68,7 @@ module.exports = Backbone.View.extend({
   logout: function() {
     cookie.unset('oauth-token');
     cookie.unset('id');
-    window.location.reload();
+    window.location = '/';
     return false;
   },
 
